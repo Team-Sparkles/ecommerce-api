@@ -1,10 +1,7 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
-  items: [{
-    item: String,
-    quantity: Number
-  }],
+  items: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Item' }],
   checkoutComplete: Boolean,
   owner: {
     type: mongoose.Schema.Types.ObjectId,

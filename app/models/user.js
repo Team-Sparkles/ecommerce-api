@@ -10,8 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  token: String,
-  orders: Array
+  token: String
 }, {
   timestamps: true,
   toObject: {
