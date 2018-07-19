@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const stripe = require('stripe')('sk_test_MQiVj9qMDQXGBocG860fkC1K')
+const order = require('../models/order')
 
 const keyPublishable = process.env.PUBLISHABLE_KEY
 const keySecret = process.env.SECRET_KEY_STRIPE
@@ -15,7 +16,7 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json())
 
 router.post('/charge', (req, res) => {
-  let amount = 200
+  let amount = '100'
 
   stripe.customers.create({
     email: req.body.email,
@@ -29,7 +30,7 @@ router.post('/charge', (req, res) => {
         customer: customer.id
       }))
     .then(charge => {
-      // console.log('charge is ', charge)
+      console.log('charge is ', charge)
       return charge
     })
     .then(charge => res.send(charge))
