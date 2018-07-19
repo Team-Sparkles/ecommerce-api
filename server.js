@@ -76,10 +76,6 @@ app.use(exampleRoutes)
 app.use(userRoutes)
 app.use(orderRoutes)
 app.use(itemRoutes)
-
-const keyPublishable = process.env.PUBLISHABLE_KEY
-const keySecret = process.env.SECRET_KEY_STRIPE
-
 app.use(chargeRoutes)
 
 // run API on designated port (4741 in this case)

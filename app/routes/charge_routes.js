@@ -1,75 +1,44 @@
-// const express = require('express')
-//
-// // Set your secret key: remember to change this to your live secret key in production
-// // See your keys here: https://dashboard.stripe.com/account/apikeys
+const express = require('express')
+const bodyParser = require('body-parser')
 const stripe = require('stripe')('sk_test_MQiVj9qMDQXGBocG860fkC1K')
-//
-// // Token is created using Checkout or Elements!
-// // Get the payment token ID submitted by the form:
-//  // Using Express
-//
-// const charge = stripe.charges.create({
-//   amount: 999,
-//   currency: 'usd',
-//   description: 'Example charge',
-//   source: token
-// })
-// const router = express.Router()
-//
-// // POST /charge
-// router.post('/charge', (req, res, next) => {
-//   charge(req)
-//     .then(data => {
-//       res.render('thanks')
-//     })
-//     .catch(error => {
-//       res.render('error', error)
-//     })
-// })
-//
-// module.exports = router
 
-// const express = require('express')
-//
-// // Set your secret key: remember to change this to your live secret key in production
-// // See your keys here: https://dashboard.stripe.com/account/apikeys
-// const stripe = require('stripe')('sk_test_MQiVj9qMDQXGBocG860fkC1K')
-//
-// // Token is created using Checkout or Elements!
-// // Get the payment token ID submitted by the form:
-// const token = req.body.stripeToken // Using Express
-//
-// const charge = stripe.charges.create({
-//   amount: 999,
-//   currency: 'usd',
-//   description: 'Example charge',
-//   source: token
-// })
-// const router = express.Router()
-//
-//
-// module.exports = router
-// Set your secret key: remember to change this to your live secret key in production
-// See your keys here: https://dashboard.stripe.com/account/apikeys
+const keyPublishable = process.env.PUBLISHABLE_KEY
+const keySecret = process.env.SECRET_KEY_STRIPE
 
-var stripe = require("stripe")("sk_test_MQiVj9qMDQXGBocG860fkC1K");
+const router = express.Router()
 
-// POST /charge
-// Token is created using Checkout or Elements!
-// Get the payment token ID submitted by the form:
-const token = request.body.stripeToken; // Using Express
+router.use(express.static('public'))
 
-const charge = stripe.charges.create({
-  amount: 999,
-  currency: 'usd',
-  description: 'Example charge',
-  source: token,
-});
+router.use(bodyParser.urlencoded({
+  extended: false
+}))
+router.use(bodyParser.json())
 
-app.post('/charge', (req, res, next) => {
-  charge(req).then(data => {
-    res.render('thanks');
-  }).catch(error => {
-    res.render('error', error);
-  });
-});
+router.post('/charge', (req, res) => {
+  let amount = 200
+
+  stripe.customers.create({
+    email: req.body.email,
+    card: req.body.id
+  })
+    .then(customer =>
+      stripe.charges.create({
+        amount,
+        description: 'Sample Charge',
+        currency: 'usd',
+        customer: customer.id
+      }))
+    .then(charge => {
+      // console.log('charge is ', charge)
+      return charge
+    })
+    .then(charge => res.send(charge))
+    .catch(err => {
+      console.log('Error:', err)
+      res.status(500).send({
+        error: 'Purchase Failed'
+      })
+    })
+})
+
+module.exports = router
