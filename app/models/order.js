@@ -17,7 +17,7 @@ const orderSchema = new mongoose.Schema({
 
 orderSchema.virtual('orderTotal').get(function () {
   const itemArray = this.items
-  console.log('itemArray sdfsdfds is ', itemArray)
+  // console.log('itemArray sdfsdfds is ', itemArray)
   const leTotal = itemArray.reduce((total, item) => {
     total += item.price
     return total
