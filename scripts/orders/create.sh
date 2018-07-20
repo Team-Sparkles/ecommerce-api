@@ -10,7 +10,7 @@ curl "${API}${URL_PATH}" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
     "order": {
-      "items": ["5b4f4391151ea8f19edd3b0a", "5b4f4384151ea8f19edd3b09", "5b4f4371151ea8f19edd3b08"],
+      "items": ["5b4f4c791e24d40f6d5a13b9", "5b4f4c791e24d40f6d5a13b9", "5b4f4c791e24d40f6d5a13b9"],
       "checkoutComplete": "'"false"'"
     }
   }'

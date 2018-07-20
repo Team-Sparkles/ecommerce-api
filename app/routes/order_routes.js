@@ -52,12 +52,22 @@ router.get('/orders/:id', requireToken, (req, res) => {
     .populate('items')
     .exec((error, order) => {
       if (error) {
-        console.error(error)
+        // console.error(error)
       }
-      console.log('order.items is: ', order.items)
+      // console.log('order.items is: ', order.items)
       return order
     })
     .then(handle404)
+    .then(order => {
+      // console.log('order.items is ', order.items)
+      const total = order.items.reduce((total, item) => {
+        total += item.price
+        // console.log('total is ', total)
+        return total
+      }, 0)
+      order.total = total
+      return order
+    })
     // if `findById` is succesful, respond with 200 and "order" JSON
     .then(order => res.status(200).json({ order: order.toObject() }))
     // if an error occurs, pass it to the handler
