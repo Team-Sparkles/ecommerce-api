@@ -57,9 +57,16 @@ https://docs.google.com/spreadsheets/d/1SvasDIhXXWnwVsdPp9oy_cZU8mPNQBPgxY6GD2Ve
 ------------
 ROUTES
 ------------
+User:
+POST /sign-up
+POST /sign-in
+PATCH /change-password
+DELETE /sign-out
+
 
 Item:
 GET /items
+GET /items/:id
 
 Order:
 POST /orders

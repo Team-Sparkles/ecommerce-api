@@ -58,52 +58,52 @@ router.get('/items/:id', (req, res) => {
 
 // CREATE
 // POST /items
-router.post('/items', requireToken, (req, res) => {
+// router.post('/items', requireToken, (req, res) => {
   // set owner of new item to be current user
-  req.body.item.owner = req.user.id
+  // req.body.item.owner = req.user.id
 
-  Item.create(req.body.item)
+  // Item.create(req.body.item)
     // respond to succesful `create` with status 201 and JSON of new "item"
-    .then(item => {
-      res.status(201).json({ item: item.toObject() })
-    })
+    // .then(item => {
+      // res.status(201).json({ item: item.toObject() })
+    // })
     // if an error occurs, pass it off to our error handler
     // the error handler needs the error message and the `res` object so that it
     // can send an error message back to the client
-    .catch(err => handle(err, res))
-})
+    // .catch(err => handle(err, res))
+// })
 
 // UPDATE
 // PATCH /items/5a7db6c74d55bc51bdf39793
-router.patch('/items/:id', requireToken, (req, res) => {
+// router.patch('/items/:id', requireToken, (req, res) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
-  delete req.body.item.owner
+  // delete req.body.item.owner
 
-  Item.findById(req.params.id)
-    .then(handle404)
-    .then(item => {
+  // Item.findById(req.params.id)
+    // .then(handle404)
+    // .then(item => {
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
-      requireOwnership(req, item)
+      // requireOwnership(req, item)
 
       // the client will often send empty strings for parameters that it does
       // not want to update. We delete any key/value pair where the value is
       // an empty string before updating
-      Object.keys(req.body.item).forEach(key => {
-        if (req.body.item[key] === '') {
-          delete req.body.item[key]
-        }
-      })
+      // Object.keys(req.body.item).forEach(key => {
+        // if (req.body.item[key] === '') {
+          // delete req.body.item[key]
+        // }
+      // })
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      return item.update(req.body.item)
-    })
+    //   return item.update(req.body.item)
+    // })
     // if that succeeded, return 204 and no JSON
-    .then(() => res.sendStatus(204))
+    // .then(() => res.sendStatus(204))
     // if an error occurs, pass it to the handler
-    .catch(err => handle(err, res))
-})
+//     .catch(err => handle(err, res))
+// })
 
 // DESTROY
 // DELETE /items/5a7db6c74d55bc51bdf39793
