@@ -31,11 +31,16 @@ const router = express.Router()
 // INDEX
 // GET /orders
 router.get('/orders', requireToken, (req, res) => {
-  Order.find()
+  // console.log('req.user._id is ', req.user._id)
+  Order.find({
+    owner: req.user._id,
+    items: { $ne: [] }
+  })
     .then(orders => {
       // `orders` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
+      orders.forEach(order => console.log('order is ', order))
       return orders.map(order => order.toObject())
     })
     // respond with status 200 and JSON of the orders
@@ -59,6 +64,7 @@ router.get('/orders/:id', requireToken, (req, res) => {
     })
     .then(handle404)
     .then(order => {
+      requireOwnership(req, order)
       // console.log('order.items is ', order.items)
       const total = order.items.reduce((total, item) => {
         total += item.price
