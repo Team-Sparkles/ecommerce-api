@@ -2,6 +2,8 @@
 NOZAMA DOT COM - YOUR ONE-STOP E-COMMERCE DESTINATION
 ------------
 
+Created by @ELueder, @MatthewJRamos, @SamPrimary, @TeriChadbourne :
+
 Welcome to NOZAMA DOT COM, the future of e-commerce! Our site can be dynamically updated with a changing database of items for sale, and users can add as many of them as they want to their shopping cart, before checking out and processing a payment using Stripe.
 
 Shoppers can view all the items on Nozama, then sign up and log into Nozama.com using their email, and immediately start their shopping experience. Once logged into Nozama, an order is started for them, and they can click on each item in the marketplace to add it to their shopping cart for that order. Additionally, users can change their password if necessary.
