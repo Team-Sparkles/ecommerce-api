@@ -100,6 +100,7 @@ router.post('/orders', requireToken, (req, res) => {
 // UPDATE
 // PATCH /orders/5a7db6c74d55bc51bdf39793
 router.patch('/orders/:id', requireToken, (req, res) => {
+
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
   delete req.body.order.owner
@@ -118,6 +119,10 @@ router.patch('/orders/:id', requireToken, (req, res) => {
         if (req.body.order[key] === '') {
           delete req.body.order[key]
         }
+        // if there is no property `items` on `order`, add in a blank array
+        // this allows us to remove last item in cart since the blank array was
+        // being deleted before it got to this function and no changes requested
+        req.body.order.items = req.body.order.items || []
       })
 
       // pass the result of Mongoose's `.update` to the next `.then`
