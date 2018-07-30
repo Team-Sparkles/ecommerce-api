@@ -2,7 +2,7 @@
 NOZAMA DOT COM - YOUR ONE-STOP E-COMMERCE DESTINATION
 ------------
 
-Created by [@ELueder](https://github.com/elueder), [@MatthewJRamos](https://github.com/MatthewJRamos), [@SamPrimary](https://github.com/SamPrimary), [@TeriChadbourne](https://github.com/TeriChadbourne) :
+Created by [@ELueder](https://github.com/elueder), [@SamPrimary](https://github.com/SamPrimary), [@MatthewJRamos](https://github.com/MatthewJRamos), [@TeriChadbourne](https://github.com/TeriChadbourne) :
 
 Welcome to NOZAMA DOT COM, the future of e-commerce! Our site can be dynamically updated with a changing database of items for sale, and users can add as many of them as they want to their shopping cart, before checking out and processing a payment using Stripe.
 
