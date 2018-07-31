@@ -40,7 +40,7 @@ router.get('/orders', requireToken, (req, res) => {
       // `orders` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      orders.forEach(order => console.log('order is ', order))
+      // orders.forEach(order => console.log('order is ', order))
       return orders.map(order => order.toObject())
     })
     // respond with status 200 and JSON of the orders

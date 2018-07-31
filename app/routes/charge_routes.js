@@ -15,7 +15,17 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json())
 
 router.post('/charge', (req, res) => {
-  let amount = 200
+  console.log('    ')
+  console.log('--------------------------')
+  console.log('CHARGE POST REQUEST')
+  console.log('inside router.post and req.body is: ')
+  console.log(req.body)
+  console.log('    ')
+  console.log('and req.body.card.metadata is: ')
+  console.log(req.body.card.metadata)
+
+  let amount = req.body.card.metadata.amount
+  let orderId = req.body.card.metadata.orderId
 
   stripe.customers.create({
     email: req.body.email,
@@ -24,12 +34,28 @@ router.post('/charge', (req, res) => {
     .then(customer =>
       stripe.charges.create({
         amount,
-        description: 'Sample Charge',
+        description: `Order # ${orderId}`,
         currency: 'usd',
-        customer: customer.id
+        customer: customer.id,
+        metadata: {
+          orderId: orderId,
+          amount: amount
+        }
       }))
     .then(charge => {
-      // console.log('charge is ', charge)
+      console.log('    ')
+      console.log('--------------------------')
+      console.log('STRIPE CHARGE')
+      console.log('after creating customer, charge.metadata is ')
+      console.log(charge.metadata)
+      console.log('    ')
+      console.log('and charge is ')
+      console.log(charge)
+      let chargeId = charge.id
+      console.log('chargeId is: ', chargeId)
+      console.log('order ID is: ', orderId)
+      console.log('amount is: ', amount)
+      // THIS IS WHERE WE SHOULD SAVE THE CHARGE ID ONTO THE ORDER 
       return charge
     })
     .then(charge => res.send(charge))
