@@ -72,6 +72,17 @@ router.get('/orders/:id', requireToken, (req, res) => {
         return total
       }, 0)
       order.total = total
+      Order.update({ _id: req.params.id }, { $set: { total: total }}, () => {
+        // fetch the order again so we can ensure the changes saved
+        Order.findById(req.params.id)
+          .then((order) => {
+            console.log('    ')
+            console.log('UPDATED ORDER AFTER ADDING TOTAL  is: ')
+            console.log(order)
+            // return the updated order
+            return order
+          })
+      })
       return order
     })
     // if `findById` is succesful, respond with 200 and "order" JSON
