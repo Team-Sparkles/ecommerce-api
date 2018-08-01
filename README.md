@@ -115,6 +115,8 @@ Nozama.com's current implementation has room for improvement!
 
 - Nozama can have item sections or let users filter visibility by tags.
 
+- Nozama can have splines reticulated.
+
 ------------
 PROCESS
 ------------
