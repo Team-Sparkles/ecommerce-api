@@ -41,8 +41,6 @@ router.get('/orders', requireToken, (req, res) => {
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
       // orders.forEach(order => console.log('order is ', order))
-      console.log('order in get all orders route is: ')
-      console.log(orders.map(order => order.toObject()))
       return orders.map(order => order.toObject())
     })
     // respond with status 200 and JSON of the orders
@@ -78,9 +76,9 @@ router.get('/orders/:id', requireToken, (req, res) => {
         // fetch the order again so we can ensure the changes saved
         Order.findById(req.params.id)
           .then((order) => {
-            console.log('    ')
-            console.log('UPDATED ORDER AFTER ADDING TOTAL  is: ')
-            console.log(order)
+            // console.log('    ')
+            // console.log('UPDATED ORDER AFTER ADDING TOTAL  is: ')
+            // console.log(order)
             // return the updated order
             return order
           })

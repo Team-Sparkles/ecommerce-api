@@ -21,9 +21,9 @@ router.post('/charge', (req, res) => {
   console.log('    ')
   console.log('--------------------------')
   console.log('CHARGE POST REQUEST')
-  console.log('inside router.post and req.body is: ')
-  console.log(req.body)
-  console.log('    ')
+  // console.log('inside router.post and req.body is: ')
+  // console.log(req.body)
+  // console.log('    ')
   console.log('and req.body.card.metadata is: ')
   console.log(req.body.card.metadata)
 
