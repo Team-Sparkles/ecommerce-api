@@ -1,8 +1,6 @@
 ------------
-NOZAMA DOT COM - YOUR ONE-STOP E-COMMERCE DESTINATION
+## NOZAMA DOT COM - YOUR ONE-STOP E-COMMERCE DESTINATION
 ------------
-
-Created by [@ELueder](https://github.com/elueder), [@MatthewJRamos](https://github.com/MatthewJRamos), [@SamPrimary](https://github.com/SamPrimary), [@TeriChadbourne](https://github.com/TeriChadbourne) :
 
 Welcome to NOZAMA DOT COM, the future of e-commerce! Our site can be dynamically updated with a changing database of items for sale, and users can add as many of them as they want to their shopping cart, before checking out and processing a payment using Stripe.
 
@@ -14,8 +12,10 @@ All users have a purchase history that they can pull up at any time, showing the
 
 We here at Nozama can add any new items at any time, and any user opening the site can then see the new items for sale.
 
+Learn about our [development team](#team). 
+
 ------------
-SITE
+## SITE
 ------------
 
 Deployed frontend client:
@@ -31,7 +31,7 @@ Backend API repository:
 https://github.com/Team-Sparkles/ecommerce-api
 
 ------------
-USER STORIES
+## USER STORIES
 ------------
 
 Mary is a new user to Nozama, and will want to view all products (name, price per unit) whether or not she is logged in.
@@ -51,13 +51,13 @@ Mary will want to checkout with items currently in her cart and process their ac
 Jonathan will want to review past orders and ensure he purchased what he expected.
 
 ------------
-ERD
+## ERD
 ------------
 
 https://docs.google.com/spreadsheets/d/1SvasDIhXXWnwVsdPp9oy_cZU8mPNQBPgxY6GD2Vepd4/edit#gid=657849471
 
 ------------
-ROUTES
+## ROUTES
 ------------
 User:
 POST /sign-up
@@ -80,7 +80,7 @@ Charge:
 POST /charge
 
 ------------
-TECHNOLOGIES USED
+## TECHNOLOGIES USED
 ------------
 
 Technologies Used for Client:
@@ -100,7 +100,7 @@ Technologies Used for API:
 - Stripe
 
 ------------
-NEXT STEPS
+## NEXT STEPS
 ------------
 
 Nozama.com's current implementation has room for improvement!
@@ -118,7 +118,7 @@ Nozama.com's current implementation has room for improvement!
 - Nozama can have splines reticulated.
 
 ------------
-PROCESS
+## PROCESS
 ------------
 
 Development was arranged using the following structure:
@@ -130,3 +130,13 @@ Development was arranged using the following structure:
 - Github's issue queue was used to manage an active list of issues to tackle, arranged by their priority as project requirements.
 
 - Development timeline was structured in advance and team checked in daily for standup reports, emulating a 'sprint' for our limited development time.
+
+------------
+## TEAM
+------------
+
+This group project was built for the Web Development at General Assembly Boston by: 
+- [Elizabeth Leuder](https://github.com/elueder)
+- [Matthew Ramos](https://github.com/MatthewJRamos)
+- [Sam Koch](https://github.com/SamPrimary)
+- [Teri Chadbourne](https://github.com/TeriChadbourne)
