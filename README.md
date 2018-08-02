@@ -118,7 +118,7 @@ Development was arranged using the following structure:
 
 ## TEAM
 
-This group project was built for the Web Development at General Assembly Boston by: 
+This group project was built for the Web Development Immersive at General Assembly Boston by: 
 - [Elizabeth Leuder](https://github.com/elueder)
 - [Matthew Ramos](https://github.com/MatthewJRamos)
 - [Sam Koch](https://github.com/SamPrimary)
