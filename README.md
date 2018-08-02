@@ -1,7 +1,6 @@
 
 ## NOZAMA DOT COM - YOUR ONE-STOP E-COMMERCE DESTINATION
 
-
 Welcome to NOZAMA DOT COM, the future of e-commerce! Our site can be dynamically updated with a changing database of items for sale, and users can add as many of them as they want to their shopping cart, before checking out and processing a payment using Stripe.
 
 Shoppers can view all the items on Nozama, then sign up and log into Nozama.com using their email, and immediately start their shopping experience. Once logged into Nozama, an order is started for them, and they can click on each item in the marketplace to add it to their shopping cart for that order. Additionally, users can change their password if necessary.
@@ -13,6 +12,7 @@ All users have a purchase history that they can pull up at any time, showing the
 We here at Nozama can add any new items at any time, and any user opening the site can then see the new items for sale.
 
 Learn about our [development team](#team). 
+
 
 
 ## SITE
@@ -29,9 +29,29 @@ https://immense-caverns-65324.herokuapp.com/
 Backend API repository:
 https://github.com/Team-Sparkles/ecommerce-api
 
-------------
-### USER STORIES
-------------
+
+
+## TECHNOLOGIES USED
+
+Technologies Used for Client:
+- JavaScript
+- jQuery
+- Handlebars
+- Stripe
+- HTML
+- CSS
+- Sass
+
+Technologies Used for API:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Stripe
+
+
+
+## USER STORIES
 
 Mary is a new user to Nozama, and will want to view all products (name, price per unit) whether or not she is logged in.
 
@@ -50,9 +70,20 @@ Mary will want to checkout with items currently in her cart and process their ac
 Jonathan will want to review past orders and ensure he purchased what he expected.
 
 
-## ERD
+## WIREFRAMES
 
-https://docs.google.com/spreadsheets/d/1SvasDIhXXWnwVsdPp9oy_cZU8mPNQBPgxY6GD2Vepd4/edit#gid=657849471
+- [Homepage](https://i.imgur.com/4LI6P1o.jpg)
+
+- [Modals for User Auth and Shopping Cart](https://i.imgur.com/JNuNcss.jpg)
+
+- [Expanded Product View](https://i.imgur.com/cAxR0jk.jpg) (for a future update)
+
+
+
+## DATA STRUCTURE
+
+View our [Entity Relationship Diagrams](https://docs.google.com/spreadsheets/d/1SvasDIhXXWnwVsdPp9oy_cZU8mPNQBPgxY6GD2Vepd4/edit#gid=657849471).
+
 
 
 ## ROUTES
@@ -78,25 +109,6 @@ Charge:
 POST /charge
 
 
-## TECHNOLOGIES USED
-
-Technologies Used for Client:
-- JavaScript
-- jQuery
-- Handlebars
-- Stripe
-- HTML
-- CSS
-- Sass
-
-Technologies Used for API:
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Stripe
-
-
 ## NEXT STEPS
 
 Nozama.com's current implementation has room for improvement!
@@ -114,6 +126,7 @@ Nozama.com's current implementation has room for improvement!
 - Nozama can have splines reticulated.
 
 
+
 ## PROCESS
 
 Development was arranged using the following structure:
@@ -125,6 +138,7 @@ Development was arranged using the following structure:
 - Github's issue queue was used to manage an active list of issues to tackle, arranged by their priority as project requirements.
 
 - Development timeline was structured in advance and team checked in daily for standup reports, emulating a 'sprint' for our limited development time.
+
 
 
 ## TEAM
