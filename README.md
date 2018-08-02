@@ -15,19 +15,15 @@ Learn about our [development team](#team).
 
 
 
-## SITE
+## SITE LINKS
 
-Deployed frontend client:
-https://team-sparkles.github.io/ecommerce-client/
+- [Deployed front-end client](https://team-sparkles.github.io/ecommerce-client/)
 
-Frontend client repository:
-https://github.com/Team-Sparkles/ecommerce-client
+- [Front-end client repository](https://github.com/Team-Sparkles/ecommerce-client)
 
-Deployed backend API:
-https://immense-caverns-65324.herokuapp.com/
+- [Deployed back-end API](https://immense-caverns-65324.herokuapp.com/)
 
-Backend API repository:
-https://github.com/Team-Sparkles/ecommerce-api
+- [Back-end API repository](https://github.com/Team-Sparkles/ecommerce-api)
 
 
 
@@ -53,29 +49,20 @@ Technologies Used for API:
 
 ## USER STORIES
 
-Mary is a new user to Nozama, and will want to view all products (name, price per unit) whether or not she is logged in.
-
-Mary will want to create an account using her email, and then immediately be able to start purchasing once she logs in.
-
-Jonathan is a long-time shopper in Nozama. He wants to be able to sign in at any time using his existing account.
-
-Jonathan is very concerned with identity security and wants to be able to change his password.
-
-Nora will want to add products one at a time to her shopping cart, once signed in, and look at her shopping cart to see the current total.
-
-Nora will want to delete products from their cart while budgeting her total purchase.
-
-Mary will want to checkout with items currently in her cart and process their active payment.
-
-Jonathan will want to review past orders and ensure he purchased what he expected.
+- Mary is a new user to Nozama, and will want to view all products (name, price per unit) whether or not she is logged in.
+- Mary will want to create an account using her email, and then immediately be able to start purchasing once she logs in.
+- Jonathan is a long-time shopper in Nozama. He wants to be able to sign in at any time using his existing account.
+- Jonathan is very concerned with identity security and wants to be able to change his password.
+- Nora will want to add products one at a time to her shopping cart, once signed in, and look at her shopping cart to see the current total.
+- Nora will want to delete products from their cart while budgeting her total purchase.
+- Mary will want to checkout with items currently in her cart and process their active payment.
+- Jonathan will want to review past orders and ensure he purchased what he expected.
 
 
 ## WIREFRAMES
 
 - [Homepage](https://i.imgur.com/4LI6P1o.jpg)
-
 - [Modals for User Auth and Shopping Cart](https://i.imgur.com/JNuNcss.jpg)
-
 - [Expanded Product View](https://i.imgur.com/cAxR0jk.jpg) (for a future update)
 
 
@@ -101,7 +88,7 @@ GET /items/:id
 
 Order:
 POST /orders
-PATCH /orders//:id
+PATCH /orders/:id
 GET /orders
 GET /orders/:id
 
@@ -114,15 +101,10 @@ POST /charge
 Nozama.com's current implementation has room for improvement!
 
 - Nozama's orders can be arranged by date.
-
 - Nozama's visual experience can welcome users by name.
-
 - Nozama's item database can be improved to create hosted image URLs, to allow each item feature tile to possess a related linked image, so now all items for sale will have an image attached.
-
 - Nozama can feature a search bar that will allow users to search for items using tags or related words.
-
 - Nozama can have item sections or let users filter visibility by tags.
-
 - Nozama can have splines reticulated.
 
 
@@ -132,11 +114,8 @@ Nozama.com's current implementation has room for improvement!
 Development was arranged using the following structure:
 
 - Each member of the team picked a specialty and would apply the bulk of their troubleshooting time to that specialty, while also working alongside all other team members.
-
 - Github was used for version control and team members reviewed each pull request to ensure that merge conflicts didn't disrupt development time.
-
 - Github's issue queue was used to manage an active list of issues to tackle, arranged by their priority as project requirements.
-
 - Development timeline was structured in advance and team checked in daily for standup reports, emulating a 'sprint' for our limited development time.
 
 
