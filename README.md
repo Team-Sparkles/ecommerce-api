@@ -18,18 +18,15 @@ Learn about our [development team](#team).
 ## SITE LINKS
 
 - [Deployed front-end client](https://team-sparkles.github.io/ecommerce-client/)
-
 - [Front-end client repository](https://github.com/Team-Sparkles/ecommerce-client)
-
 - [Deployed back-end API](https://immense-caverns-65324.herokuapp.com/)
-
 - [Back-end API repository](https://github.com/Team-Sparkles/ecommerce-api)
 
 
 
 ## TECHNOLOGIES USED
 
-Technologies Used for Client:
+**Technologies Used for Client:**
 - JavaScript
 - jQuery
 - Handlebars
@@ -38,7 +35,7 @@ Technologies Used for Client:
 - CSS
 - Sass
 
-Technologies Used for API:
+**Technologies Used for API:**
 - Node.js
 - Express.js
 - MongoDB
@@ -75,25 +72,24 @@ View our [Entity Relationship Diagrams](https://docs.google.com/spreadsheets/d/1
 
 ## ROUTES
 
-User:
-POST /sign-up
-POST /sign-in
-PATCH /change-password
-DELETE /sign-out
+**User:** <br/>
+POST /sign-up <br/>
+POST /sign-in <br/>
+PATCH /change-password <br/>
+DELETE /sign-out <br/>
 
+**Item:** <br/>
+GET /items <br/>
+GET /items/:id <br/>
 
-Item:
-GET /items
-GET /items/:id
+**Order:** <br/>
+POST /orders <br/>
+PATCH /orders/:id <br/>
+GET /orders <br/>
+GET /orders/:id <br/>
 
-Order:
-POST /orders
-PATCH /orders/:id
-GET /orders
-GET /orders/:id
-
-Charge:
-POST /charge
+**Charge:** <br/>
+POST /charge <br/>
 
 
 ## NEXT STEPS
