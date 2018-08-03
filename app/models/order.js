@@ -34,15 +34,11 @@ const orderSchema = new mongoose.Schema({
 //   // wait for all those promises to resolve, then calculate the total by
 //   // reducing the total.price of each item into a total
 //   return Promise.all(promiseArray).then(function (itemDetailArray) {
-//     console.log('ITEMS FROM PROMISE.ALL IS: ')
-//     console.log(itemDetailArray)
 //     const virtualTotal = itemDetailArray.reduce((total, item) => {
 //         total += item.price
 //         return total
 //       }, 0)
 //     // return that total
-//     console.log('VIRTUAL TOTAL IS: ', virtualTotal)
-//     console.log(typeof virtualTotal)
 //     return virtualTotal
 //   }) // end Promise.all
 // }) // end virtual
