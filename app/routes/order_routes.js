@@ -31,11 +31,16 @@ const router = express.Router()
 // INDEX
 // GET /orders
 router.get('/orders', requireToken, (req, res) => {
-  Order.find()
+  // console.log('req.user._id is ', req.user._id)
+  Order.find({
+    owner: req.user._id,
+    items: { $ne: [] }
+  })
     .then(orders => {
       // `orders` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
+      // orders.forEach(order => console.log('order is ', order))
       return orders.map(order => order.toObject())
     })
     // respond with status 200 and JSON of the orders
@@ -54,11 +59,12 @@ router.get('/orders/:id', requireToken, (req, res) => {
       if (error) {
         // console.error(error)
       }
-      // console.log('order.items is: ', order.items)
+      // console.log('order in get route is: ', order)
       return order
     })
     .then(handle404)
     .then(order => {
+      requireOwnership(req, order)
       // console.log('order.items is ', order.items)
       const total = order.items.reduce((total, item) => {
         total += item.price
@@ -66,6 +72,17 @@ router.get('/orders/:id', requireToken, (req, res) => {
         return total
       }, 0)
       order.total = total
+      Order.update({ _id: req.params.id }, { $set: { total: total }}, () => {
+        // fetch the order again so we can ensure the changes saved
+        Order.findById(req.params.id)
+          .then((order) => {
+            // console.log('    ')
+            // console.log('UPDATED ORDER AFTER ADDING TOTAL  is: ')
+            // console.log(order)
+            // return the updated order
+            return order
+          })
+      })
       return order
     })
     // if `findById` is succesful, respond with 200 and "order" JSON
@@ -94,6 +111,7 @@ router.post('/orders', requireToken, (req, res) => {
 // UPDATE
 // PATCH /orders/5a7db6c74d55bc51bdf39793
 router.patch('/orders/:id', requireToken, (req, res) => {
+
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
   delete req.body.order.owner
@@ -101,6 +119,7 @@ router.patch('/orders/:id', requireToken, (req, res) => {
   Order.findById(req.params.id)
     .then(handle404)
     .then(order => {
+      // console.log('order in update route is: ', order)
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
       requireOwnership(req, order)
@@ -112,6 +131,10 @@ router.patch('/orders/:id', requireToken, (req, res) => {
         if (req.body.order[key] === '') {
           delete req.body.order[key]
         }
+        // if there is no property `items` on `order`, add in a blank array
+        // this allows us to remove last item in cart since the blank array was
+        // being deleted before it got to this function and no changes requested
+        req.body.order.items = req.body.order.items || []
       })
 
       // pass the result of Mongoose's `.update` to the next `.then`
