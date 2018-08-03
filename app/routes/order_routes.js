@@ -59,7 +59,7 @@ router.get('/orders/:id', requireToken, (req, res) => {
       if (error) {
         // console.error(error)
       }
-      console.log('order in get route is: ', order)
+      // console.log('order in get route is: ', order)
       return order
     })
     .then(handle404)
@@ -119,7 +119,7 @@ router.patch('/orders/:id', requireToken, (req, res) => {
   Order.findById(req.params.id)
     .then(handle404)
     .then(order => {
-      console.log('order in update route is: ', order)
+      // console.log('order in update route is: ', order)
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
       requireOwnership(req, order)
