@@ -18,14 +18,6 @@ router.use(bodyParser.json())
 
 // when a post request is received to our charge route
 router.post('/charge', (req, res) => {
-  // console.log('    ')
-  // console.log('--------------------------')
-  // console.log('CHARGE POST REQUEST')
-  // // console.log('inside router.post and req.body is: ')
-  // // console.log(req.body)
-  // // console.log('    ')
-  // console.log('req.body.card.metadata is: ')
-  // console.log(req.body.card.metadata)
 
   // locate the metadata we sent within `req.body.card.metadata`
   // and save to `amount` and `orderId` variables for later access
@@ -54,43 +46,16 @@ router.post('/charge', (req, res) => {
     // when Stripe responds with a charge record, capture the charge ID it
     // supplies as variable `chargeId`
     .then(charge => {
-      // console.log('    ')
-      // console.log('--------------------------')
-      // console.log('STRIPE CHARGE')
-      // console.log('after creating customer, charge.metadata is ')
-      // console.log(charge.metadata)
-      // console.log('    ')
-      // console.log('and charge.id is ')
-      // console.log(charge.id)
       let chargeId = charge.id
 
-      // we now have the charge ID, order ID, and amount all available in the
-      // same place
-      console.log('    ')
-      console.log('--------------------------')
-      console.log('DATA ACCESSIBLE WHILE PROCESSING STRIPE TRANSACTION')
-      console.log('chargeId is: ', chargeId)
-      console.log('orderId is: ', orderId)
-      console.log('amount is: ', amount)
-
       Order.findById(orderId)
-        // console log the original order record
         .then(order => {
-          console.log('    ')
-          console.log('--------------------------')
-          console.log('UPDATING ORDER')
-          console.log('order we need to add charge ID to is: ')
-          console.log(order)
-
           // save the charge id to the appropriate order record and set
           // `checkoutCompleted` to true
           Order.update({ _id: orderId }, { $set: { chargeId: chargeId, checkoutComplete: true }}, () => {
             // fetch the order again so we can ensure the changes saved
             Order.findById(orderId)
               .then((order) => {
-                console.log('    ')
-                console.log('UPDATED ORDER with charge ID and marked as completed is: ')
-                console.log(order)
                 // return the updated order
                 return order
               })
