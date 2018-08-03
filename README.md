@@ -30,7 +30,8 @@ Learn about our [development team](#team).
 - JavaScript
 - jQuery
 - Handlebars
-- Stripe
+- Bootstrap
+- Stripe API
 - HTML
 - CSS
 - Sass
